@@ -3,6 +3,8 @@
   let myName = document.getElementById("my-name"); 
   let getName = document.getElementById("get-name");
   let userName = document.getElementById("user-name"); 
+  let resetButton = document.getElementById("reset"); 
+  let reset = document.getElementById("user-name").placeholder = "Your name?";
   let nameStored = localStorage.name;
   console.log(`Name on page load: ${nameStored}`);
   
@@ -27,19 +29,34 @@
     // Show the name in "my-name":
     myName.innerHTML = nameStored;
     // Put the name into localStorage:
-	//uigiuygiuyguyig
     localStorage.name = nameStored;
     console.log(`New name stored: ${nameStored}`);
     return false;
   }
 
+  function PerformReset() {
+	
+		localStorage.clear();
+		userName.value = reset;
+		return false;
+	
+  }
+  
   // Listens for a form submit action: 
   if (typeof event === "undefined") {
-    getName.onsubmit = PerformGreeting; // for Firefox
+    getName.onsubmit = PerformGreeting;
+	resetButton.onclick = PerformReset;	// for Firefox
+	
+	
   }
   else {
     getName.addEventListener("submit", PerformGreeting);
+	resetButton.addEventListener("click", PerformReset);
+	
     event.preventDefault();
   }
+  
+		
+  
 
 }());
