@@ -27,6 +27,7 @@
     // Show the name in "my-name":
     myName.innerHTML = nameStored;
     // Put the name into localStorage:
+	//uigiuygiuyguyig
     localStorage.name = nameStored;
     console.log(`New name stored: ${nameStored}`);
     return false;
